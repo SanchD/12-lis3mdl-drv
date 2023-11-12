@@ -1,23 +1,22 @@
 /*****************************************************************
- * @file    i2c_hal.h
+ * @file    i2c_hal.c
  * @author  Sanchitha Dias
  * @date    12/11/2024
  * @brief   Contains all the interfaces of I2C communication of
  *          the Magnetometer Test Application.
 ******************************************************************/
-#ifndef I2C_HAL_H
-#define I2C_HAL_H
+#include "i2c_hal.h"
 
-#include "board.h"
-#include "stdint.h"
+int32_t i2c_read(uint8_t bus_address, uint8_t register_address, uint8_t *buffer, uint16_t length)
+{
+    return 0;
+}
 
-extern int32_t i2c_read(uint8_t bus_address, uint8_t register_address, uint8_t *buffer,
-uint16_t length);
+int32_t i2c_write(uint8_t bus_address, uint8_t register_address, uint8_t *data, uint16_t length)
+{
+    return 0;
+}
 
-extern int32_t i2c_write(uint8_t bus_address, uint8_t register_address, uint8_t *data,
-uint16_t length);
-
-#endif
 /******************************************************************
 *********                       EOF                       *********
 *******************************************************************

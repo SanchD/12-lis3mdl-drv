@@ -7,8 +7,10 @@
 /******************************************************************
 *********                       Includes                  *********
 ******************************************************************/
-#include "Board.h"
-#include "Defines.h"
+#include <stdio.h>
+
+#include "board.h"
+#include "defines.h"
 
 #include "i2c_hal.h"
 #include "lis3mdl_reg.h"
@@ -35,10 +37,9 @@
 /******************************************************************
 *********              Application Firmware               *********
 ******************************************************************/
-void main()
+int main()
 {
-    uint8_t bus_address = LIS3MDL_ID;
-    int16_t data_raw_magnetic;
+    int16_t data_raw_magnetic = 0;
     uint8_t who_am_i, rst, int_pin_state = PROPERTY_DISABLE;
     lis3mdl_fs_t dev_full_scale = LIS3MDL_16_GAUSS;
     lis3mdl_om_t device_data_rate = LIS3MDL_LP_Hz625;
@@ -47,7 +48,7 @@ void main()
     stmdev_ctx_t dev_ctx;
     dev_ctx.write_reg = i2c_write;
     dev_ctx.read_reg = i2c_read;
-    dev_ctx.handle = &bus_address;
+    dev_ctx.handle = LIS3MDL_ID;
 
     /* Check device ID */
     lis3mdl_device_id_get(&dev_ctx, &who_am_i);
@@ -113,7 +114,7 @@ void main()
 
     printf("9 - Z-Axis Raw Data: %d\r\n", data_raw_magnetic);
 
-    return;
+    return 0;
 }
 /******************************************************************
 *********                       EOF                       *********
