@@ -11,10 +11,10 @@
 #include "Board.h"
 #include "stdint.h"
 
-uint8_t i2c_read(uint8_t bus_address, uint8_t register_address, uint8_t *buffer,
+int32_t i2c_read(uint8_t bus_address, uint8_t register_address, uint8_t *buffer,
 uint16_t length);
 
-uint8_t i2c_write(uint8_t bus_address, uint8_t register_address, uint8_t *data,
+int32_t i2c_write(uint8_t bus_address, uint8_t register_address, uint8_t *data,
 uint16_t length);
 
 #endif
