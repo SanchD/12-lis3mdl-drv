@@ -1,0 +1,3 @@
+[submodule "drv/lis3mdl-pid"]
+	path = drv/lis3mdl-pid
+	url = git@github.com:STMicroelectronics/lis3mdl-pid.git
