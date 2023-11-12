@@ -1,0 +1,46 @@
+diff --git a/lis3mdl_reg.c b/lis3mdl_reg.c
+index b465b86..a929871 100644
+--- a/lis3mdl_reg.c
++++ b/lis3mdl_reg.c
+@@ -46,7 +46,7 @@
+   * @retval       interface status (MANDATORY: return 0 -> no Error)
+   *
+   */
+-int32_t __weak lis3mdl_read_reg(stmdev_ctx_t *ctx, uint8_t reg,
++int32_t lis3mdl_read_reg(stmdev_ctx_t *ctx, uint8_t reg,
+                                 uint8_t *data,
+                                 uint16_t len)
+ {
+@@ -67,7 +67,7 @@ int32_t __weak lis3mdl_read_reg(stmdev_ctx_t *ctx, uint8_t reg,
+   * @retval       interface status (MANDATORY: return 0 -> no Error)
+   *
+   */
+-int32_t __weak lis3mdl_write_reg(stmdev_ctx_t *ctx, uint8_t reg,
++int32_t lis3mdl_write_reg(stmdev_ctx_t *ctx, uint8_t reg,
+                                  uint8_t *data,
+                                  uint16_t len)
+ {
+diff --git a/lis3mdl_reg.h b/lis3mdl_reg.h
+index eab434a..c0b1a16 100644
+--- a/lis3mdl_reg.h
++++ b/lis3mdl_reg.h
+@@ -109,8 +109,8 @@ typedef struct
+   *
+   */
+ 
+-typedef int32_t (*stmdev_write_ptr)(void *, uint8_t, const uint8_t *, uint16_t);
+-typedef int32_t (*stmdev_read_ptr)(void *, uint8_t, uint8_t *, uint16_t);
++typedef int32_t (*stmdev_write_ptr)(uint8_t , uint8_t, uint8_t *, uint16_t);
++typedef int32_t (*stmdev_read_ptr)(uint8_t , uint8_t, uint8_t *, uint16_t);
+ typedef void (*stmdev_mdelay_ptr)(uint32_t millisec);
+ 
+ typedef struct
+@@ -121,7 +121,7 @@ typedef struct
+   /** Component optional fields **/
+   stmdev_mdelay_ptr   mdelay;
+   /** Customizable optional pointer **/
+-  void *handle;
++  uint8_t handle;
+ } stmdev_ctx_t;
+ 
+ /**

@@ -102,15 +102,15 @@ int main()
 
     printf("6 - Device’s Interrupt Pin State After Disabling: %d\r\n", int_pin_state);
 
-    lis3mdl_read_reg(&dev_ctx, LIS3MDL_OUT_X_L, (uint8_t *) data_raw_magnetic, 2);
+    lis3mdl_read_reg(&dev_ctx, LIS3MDL_OUT_X_L, (uint8_t *) &data_raw_magnetic, 2);
 
     printf("7 - X-Axis Raw Data: %d\r\n", data_raw_magnetic);
 
-    lis3mdl_read_reg(&dev_ctx, LIS3MDL_OUT_Y_L, (uint8_t *) data_raw_magnetic, 2);
+    lis3mdl_read_reg(&dev_ctx, LIS3MDL_OUT_Y_L, (uint8_t *) &data_raw_magnetic, 2);
 
     printf("8 - Y-Axis Raw Data: %d\r\n", data_raw_magnetic);
 
-    lis3mdl_read_reg(&dev_ctx, LIS3MDL_OUT_Z_L, (uint8_t *) data_raw_magnetic, 2);
+    lis3mdl_read_reg(&dev_ctx, LIS3MDL_OUT_Z_L, (uint8_t *) &data_raw_magnetic, 2);
 
     printf("9 - Z-Axis Raw Data: %d\r\n", data_raw_magnetic);
 
